@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+<body>
+<h1>First Request</h1>
+<p id="data"></p>
+
+<h1>Second Request</h1>
+<p id="data1"></p>
+
+
+<script>
+  var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("data").innerHTML = (this.responseText);
+            }
+        };
+        xmlhttp.open("GET","https://jsonplaceholder.typicode.com/users", false);
+        xmlhttp.send();
+   
+  var xmlhttp1 = new XMLHttpRequest();
+        xmlhttp1.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("data1").innerHTML = (this.responseText);
+            }
+        };
+        xmlhttp1.open("GET","https://jsonplaceholder.typicode.com/posts", true);
+        xmlhttp1.send();
+		</script>
+</body>
+</html>
